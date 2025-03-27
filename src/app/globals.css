@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 255, 215, 0;
+	--background-end-rgb: 255, 140, 0;
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+		to right,
+		rgb(var(--background-start-rgb)),
+		rgb(var(--background-end-rgb))
+	);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+@layer components {
+	.btn-primary {
+		@apply inline-block bg-primary text-white px-8 py-3 rounded-full
+		font-semibold hover:bg-primary-dark transform hover:scale-105
+		transition-all duration-300 shadow-lg hover:shadow-xl;
+	}
+} 
