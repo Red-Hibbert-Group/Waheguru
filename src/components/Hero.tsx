@@ -29,7 +29,7 @@ export default function Hero() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="text-center lg:text-left space-y-8"
+						className="text-center lg:text-left space-y-8 pb-32 sm:pb-0"
 					>
 						<div className="space-y-4">
 							<h2 className="text-lg font-medium text-orange-600 tracking-wide uppercase">
