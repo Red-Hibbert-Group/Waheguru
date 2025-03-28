@@ -9,19 +9,19 @@ export default function Locations() {
   const locations = [
     {
       name: 'LIVERMORE',
-      image: '/images/gurdwara-livermore.jpg',
+      image: '/images/667e0dfffde882eaac42dcce_tri-valleysikhcenterslider1.webp',
       title: 'Gurdwara Sahib of Livermore',
       description: 'The Tri Valley Sikh Center is a non-profit organization, established with a vision of "Sarbat Da Bhala," has become a beacon of Sikh teachings and community in the Tri-Valley area. Embracing the timeless teachings of the Guru Granth Sahib Ji, it fosters cultural, religious, and social consciousness.'
     },
     {
       name: 'SAN JOSE',
-      image: '/images/gurdwara-sanjose.jpg',
+      image: '/images/667e0eeb8f01ab47aaaa15f9_san-jose-seik-gurudwara.jpg',
       title: 'Gurdwara Sahib of San Jose',
       description: 'The San Jose Gurdwara serves as a spiritual hub for the Sikh community in the South Bay Area. With its serene atmosphere and dedicated sevadars, it provides a peaceful space for worship, learning, and community gathering.'
     },
     {
       name: 'FREMONT',
-      image: '/images/gurdwara-fremont.jpg',
+      image: '/images/667e08c8024626a0fdf13e63_fremont-5.png',
       title: 'Gurdwara Sahib of Fremont',
       description: 'The Fremont Gurdwara is a vibrant center of Sikh faith and culture in the East Bay. It offers regular services, educational programs, and community outreach initiatives, serving as a cornerstone for the local Sikh population.'
     }
@@ -60,7 +60,7 @@ export default function Locations() {
           {/* Tri Valley Sikh Center Logo */}
           <div className="mb-12">
             <Image
-              src="/images/tri-valley-logo.png"
+              src="/images/667e0d840e1f4b734ef723a1_Tri-Valley-Sikh-Center-Logo.png"
               alt="Tri Valley Sikh Center"
               width={400}
               height={100}

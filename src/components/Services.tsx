@@ -21,7 +21,7 @@ export default function Services() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg">
             <div className="relative h-64 w-full">
               <Image
-                src="/images/educational-programs.jpg"
+                src="/images/667e0685d321a59a71c14292_IMG_1792-Large.jpg"
                 alt="Educational Programs at Gurdwara"
                 fill
                 className="object-cover"
@@ -49,7 +49,7 @@ export default function Services() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg">
             <div className="relative h-64 w-full">
               <Image
-                src="/images/community-food.jpg"
+                src="/images/667e08b15ad4a78219a7e41b_1b39eccb-5ba0-425a-aa11-1d0023ff8e3b.jpg"
                 alt="Langar Service at Gurdwara"
                 fill
                 className="object-cover"

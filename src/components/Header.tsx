@@ -16,7 +16,7 @@ export default function Header() {
 					</Link>
 
 					{/* Desktop Navigation */}
-					<nav className="hidden md:flex space-x-8">
+					<nav className="hidden md:flex items-center space-x-8">
 						<Link
 							href="/about"
 							className="text-neutral-600 hover:text-primary-500 transition-colors"
@@ -30,16 +30,19 @@ export default function Header() {
 							Our Projects
 						</Link>
 						<Link
-							href="/donate"
-							className="text-white bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-full transition-colors"
-						>
-							Donate
-						</Link>
-						<Link
 							href="/contact"
 							className="text-neutral-600 hover:text-primary-500 transition-colors"
 						>
 							Contact Us
+						</Link>
+						<Link
+							href="/donate"
+							className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full
+							font-semibold hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all
+							duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
+						>
+							<span className="relative z-10">Donate</span>
+							<div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 						</Link>
 					</nav>
 
@@ -93,18 +96,20 @@ export default function Header() {
 								Our Projects
 							</Link>
 							<Link
-								href="/donate"
-								className="block px-3 py-2 text-white bg-primary-500 hover:bg-primary-600 rounded-full transition-colors"
-								onClick={() => setIsMenuOpen(false)}
-							>
-								Donate
-							</Link>
-							<Link
 								href="/contact"
 								className="block px-3 py-2 text-neutral-600 hover:text-primary-500 transition-colors"
 								onClick={() => setIsMenuOpen(false)}
 							>
 								Contact Us
+							</Link>
+							<Link
+								href="/donate"
+								className="block px-3 py-2 text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full 
+								hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 
+								shadow-lg hover:shadow-xl text-center font-semibold"
+								onClick={() => setIsMenuOpen(false)}
+							>
+								Donate
 							</Link>
 						</div>
 					</div>
