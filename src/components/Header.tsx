@@ -24,10 +24,10 @@ export default function Header() {
 							About Us
 						</Link>
 						<Link
-							href="/projects"
+							href="/info"
 							className="text-neutral-600 hover:text-primary-500 transition-colors"
 						>
-							Our Projects
+							Info
 						</Link>
 						<Link
 							href="/contact"
@@ -89,11 +89,11 @@ export default function Header() {
 								About Us
 							</Link>
 							<Link
-								href="/projects"
+								href="/info"
 								className="block px-3 py-2 text-neutral-600 hover:text-primary-500 transition-colors"
 								onClick={() => setIsMenuOpen(false)}
 							>
-								Our Projects
+								Info
 							</Link>
 							<Link
 								href="/contact"
