@@ -1,17 +1,25 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Image from 'next/image'
+
+// Define interface for testimonials
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  avatar: string;
+}
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const intervalRef = useRef(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       quote: "The support and guidance from the Waheguru community has been transformative. Their educational programs have given my children hope for a brighter future.",
       author: "Jaspreet Singh",
@@ -42,7 +50,7 @@ export default function Testimonials() {
   useEffect(() => {
     if (autoplay && isInView) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex(prevIndex => 
+        setCurrentIndex((prevIndex) => 
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         )
       }, 5000)
@@ -58,14 +66,14 @@ export default function Testimonials() {
   // Navigation functions
   const goToPrevious = () => {
     setAutoplay(false)
-    setCurrentIndex(prevIndex => 
+    setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     )
   }
 
   const goToNext = () => {
     setAutoplay(false)
-    setCurrentIndex(prevIndex => 
+    setCurrentIndex((prevIndex) => 
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     )
   }
@@ -93,8 +101,8 @@ export default function Testimonials() {
     <section ref={ref} className="py-24 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10 opacity-50">
-        <div className="absolute top-0 right-0 w-full h-1/3 bg-gradient-to-b from-orange-100/30 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-amber-100/30 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-full h-1/3 bg-gradient-to-b from-primary-100/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-primary-100/30 to-transparent"></div>
       </div>
       
       {/* Floating decorative elements */}
@@ -102,13 +110,13 @@ export default function Testimonials() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.6 } : {}}
         transition={{ duration: 1 }}
-        className="absolute top-20 right-20 w-72 h-72 rounded-full bg-orange-200 blur-3xl -z-10"
+        className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary-200 blur-3xl -z-10"
       />
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.5 } : {}}
         transition={{ duration: 1, delay: 0.3 }}
-        className="absolute bottom-20 left-40 w-80 h-80 rounded-full bg-amber-200 blur-3xl -z-10"
+        className="absolute bottom-20 left-40 w-80 h-80 rounded-full bg-primary-200 blur-3xl -z-10"
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -129,8 +137,8 @@ export default function Testimonials() {
         <div className="relative">
           {/* Main testimonial area */}
           <div className="relative bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-10 overflow-hidden shadow-xl min-h-[320px] md:min-h-[280px] flex items-center">
-            {/* Quote decoration - positioned differently for mobile vs desktop */}
-            <div className="absolute top-6 left-6 text-primary-200 opacity-20 md:opacity-30 hidden md:block">
+            {/* Quote decoration for desktop only */}
+            <div className="absolute top-6 left-6 text-primary-200 opacity-30 hidden md:block">
               <svg className="w-20 h-20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.017 21v-7.391C14.017 10.257 16.748 7.41 20.143 7.41v3.304c-1.513 0-2.739 1.394-2.739 3.11V21h-3.387zm-9.304 0v-7.391C4.713 10.257 7.443 7.41 10.839 7.41v3.304c-1.513 0-2.739 1.394-2.739 3.11V21H4.713z" />
               </svg>
@@ -147,10 +155,10 @@ export default function Testimonials() {
               >
                 <div className="md:flex md:items-center md:gap-8">
                   {/* Testimonial content */}
-                  <div className="md:flex-1 relative">
-                    {/* Smaller quote icon for mobile only */}
-                    <div className="absolute -top-3 -left-2 text-primary-200 opacity-20 md:hidden">
-                      <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <div className="md:flex-1 relative w-full">
+                    {/* Small quote icon for mobile only */}
+                    <div className="absolute -top-4 left-0 text-primary-200 opacity-10 md:hidden">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14.017 21v-7.391C14.017 10.257 16.748 7.41 20.143 7.41v3.304c-1.513 0-2.739 1.394-2.739 3.11V21h-3.387zm-9.304 0v-7.391C4.713 10.257 7.443 7.41 10.839 7.41v3.304c-1.513 0-2.739 1.394-2.739 3.11V21H4.713z" />
                       </svg>
                     </div>
@@ -159,7 +167,7 @@ export default function Testimonials() {
                       variants={textVariants}
                       initial="hidden"
                       animate="visible"
-                      className="text-lg md:text-xl text-neutral-700 italic mb-6 font-light leading-relaxed md:pr-12 pl-1"
+                      className="text-lg md:text-xl text-neutral-700 italic mb-6 font-light leading-relaxed md:pr-12 pl-2.5"
                     >
                       "{testimonials[currentIndex].quote}"
                     </motion.div>

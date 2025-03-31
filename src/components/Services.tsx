@@ -13,7 +13,7 @@ interface Service {
 
 export default function Services() {
 	// Reference for the section to trigger animations when in view
-	const sectionRef = useRef<HTMLElement>(null)
+	const sectionRef = useRef(null)
 	const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
 	// Define services data with SVG icons

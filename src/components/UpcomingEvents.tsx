@@ -19,7 +19,7 @@ interface Event {
 }
 
 export default function UpcomingEvents() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
   

@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 
 export default function Locations() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   // Location data

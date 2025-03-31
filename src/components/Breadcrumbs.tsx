@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export default function Breadcrumbs() {
   const pathname = usePathname()
-  const paths = pathname.split('/').filter(Boolean)
+  const paths = pathname ? pathname.split('/').filter(Boolean) : []
 
   return (
     <nav className="bg-white/80 backdrop-blur-sm border-b border-neutral-200">
