@@ -81,9 +81,14 @@ export default function Header() {
 						))}
 						<Link
 							href="/donate"
-							className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 bg-primary-600 rounded-lg hover:bg-primary-700 focus:shadow-outline focus:outline-none"
+							className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white 
+							transition-all duration-300 bg-primary-600 rounded-lg relative overflow-hidden
+							group hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] hover:scale-105
+							before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-500 before:via-amber-400 before:to-orange-500
+							before:translate-x-[-100%] before:hover:translate-x-[100%] before:transition-transform before:duration-700
+							before:opacity-50 before:hover:opacity-100"
 						>
-							Donate
+							<span className="relative z-10">Donate</span>
 						</Link>
 					</div>
 
@@ -159,10 +164,16 @@ export default function Header() {
 								>
 									<Link
 										href="/donate"
-										className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-primary-600 hover:bg-primary-700"
+										className="block w-full text-center px-3 py-2 rounded-md text-base font-medium 
+										text-white bg-primary-600 relative overflow-hidden
+										group hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] hover:scale-105
+										transition-all duration-300
+										before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-500 before:via-amber-400 before:to-orange-500
+										before:translate-x-[-100%] before:hover:translate-x-[100%] before:transition-transform before:duration-700
+										before:opacity-50 before:hover:opacity-100"
 										onClick={() => setIsMobileMenuOpen(false)}
 									>
-										Donate
+										<span className="relative z-10">Donate</span>
 									</Link>
 								</motion.div>
 							</div>

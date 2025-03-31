@@ -17,7 +17,7 @@ export default function Contact() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400">
+		<div className="min-h-screen">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 				{/* Logo */}
 				<div className="flex justify-center mb-8">

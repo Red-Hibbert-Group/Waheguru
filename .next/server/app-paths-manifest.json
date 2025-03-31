@@ -2,6 +2,6 @@
   "/about/page": "app/about/page.js",
   "/info/page": "app/info/page.js",
   "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/donate/page": "app/donate/page.js"
+  "/donate/page": "app/donate/page.js",
+  "/contact/page": "app/contact/page.js"
 }
