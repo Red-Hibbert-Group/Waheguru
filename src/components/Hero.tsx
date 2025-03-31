@@ -46,7 +46,7 @@ export default function Hero() {
 							lasting positive change in communities around the world.
 						</p>
 
-						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 sm:mb-0">
 							<Link
 								href="/donate"
 								className="inline-flex items-center justify-center px-8 py-4 text-lg
