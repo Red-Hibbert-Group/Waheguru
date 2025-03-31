@@ -12,6 +12,7 @@
 		"framer-motion": "^12.6.2",
 		"next": "latest",
 		"react": "latest",
+		"react-countup": "^6.5.3",
 		"react-dom": "latest"
 	},
 	"devDependencies": {

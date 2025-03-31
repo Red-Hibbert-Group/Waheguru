@@ -10,42 +10,40 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316', // Main orange
-          600: '#ea580c',
-          700: '#c2410c',
+          50: '#FFFDE7',
+          100: '#FFF9C4',
+          200: '#FFF59D',
+          300: '#FFF176',
+          400: '#FFEE58',
+          500: '#FFC107', // Golden Yellow - Main brand color
+          600: '#FFB300',
+          700: '#FFA000',
+          800: '#FF8F00',
+          900: '#FF6F00',
         },
         secondary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9', // Complementary blue
-          600: '#0284c7',
-        },
-        accent: {
-          50: '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f5d0fe',
-          300: '#e879f9',
-          400: '#d946ef',
-          500: '#c026d3', // Accent purple
-          600: '#a21caf',
+          50: '#E6ECF2',
+          100: '#C2D0E0',
+          200: '#9AB0CE',
+          300: '#7390BC',
+          400: '#4B70A9',
+          500: '#003366', // Royal Blue - Secondary color
+          600: '#002D5C',
+          700: '#002752',
+          800: '#002147',
+          900: '#001A3D',
         },
         neutral: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
+          50: '#FFFFFF', // White - Main background
+          100: '#F5F5F5', // Soft Gray - Light background sections
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#616161',
+          800: '#424242',
+          900: '#333333', // Dark Gray - Text color
         }
       },
       fontFamily: {
@@ -53,7 +51,8 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-warm': 'linear-gradient(to right, #fff7ed, #ffedd5)',
+        'gradient-warm': 'linear-gradient(to right, #FFC107, #FFD54F)',
+        'gradient-blue': 'linear-gradient(to right, #003366, #004080)',
       },
     },
   },

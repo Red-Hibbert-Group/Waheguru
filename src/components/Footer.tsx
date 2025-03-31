@@ -53,15 +53,15 @@ export default function Footer() {
 	]
 
 	return (
-		<footer className="bg-white/90 backdrop-blur-sm">
+		<footer className="bg-primary-500 text-neutral-900">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
 					{/* About Column */}
 					<div>
-						<h3 className="text-xl font-semibold text-primary-700 mb-4">
+						<h3 className="text-xl font-semibold text-secondary-500 mb-4">
 							ABOUT WAHEGURU
 						</h3>
-						<p className="text-neutral-600 leading-relaxed">
+						<p className="text-neutral-800 leading-relaxed">
 							Waheguru is devoted to the spread of Sikhism through community outreach. 
 							We are a religious nonprofit and all proceeds help advance our gurdwara facilities.
 						</p>
@@ -69,7 +69,7 @@ export default function Footer() {
 
 					{/* Useful Links Column */}
 					<div>
-						<h3 className="text-xl font-semibold text-primary-700 mb-4">
+						<h3 className="text-xl font-semibold text-secondary-500 mb-4">
 							USEFUL LINKS
 						</h3>
 						<ul className="space-y-3">
@@ -77,7 +77,7 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className="text-neutral-600 hover:text-primary-600 transition-colors duration-200"
+										className="text-neutral-800 hover:text-secondary-500 transition-colors duration-200"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
@@ -90,7 +90,7 @@ export default function Footer() {
 
 					{/* Social Column */}
 					<div>
-						<h3 className="text-xl font-semibold text-primary-700 mb-4">
+						<h3 className="text-xl font-semibold text-secondary-500 mb-4">
 							SOCIAL
 						</h3>
 						<ul className="space-y-3">
@@ -98,11 +98,11 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className="flex items-center gap-3 text-neutral-600 hover:text-primary-600 transition-colors duration-200 group"
+										className="flex items-center gap-3 text-neutral-800 hover:text-secondary-500 transition-colors duration-200 group"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<span className="group-hover:text-primary-500 transition-colors duration-200">
+										<span className="group-hover:text-secondary-500 transition-colors duration-200">
 											{link.icon}
 										</span>
 										{link.name}
@@ -114,8 +114,8 @@ export default function Footer() {
 				</div>
 
 				{/* Copyright */}
-				<div className="mt-12 pt-8 border-t border-neutral-200">
-					<p className="text-center text-neutral-500 text-sm">
+				<div className="mt-12 pt-8 border-t border-primary-400">
+					<p className="text-center text-neutral-800 text-sm">
 						© {new Date().getFullYear()} Waheguru. All rights reserved.
 					</p>
 				</div>

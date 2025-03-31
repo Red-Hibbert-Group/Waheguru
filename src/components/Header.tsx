@@ -47,7 +47,7 @@ export default function Header() {
 			animate="visible"
 			transition={{ type: 'spring', stiffness: 100, damping: 20 }}
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-				isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'
+				isScrolled ? 'bg-neutral-50/95 backdrop-blur-md shadow-md' : 'bg-transparent'
 			}`}
 		>
 			<nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function Header() {
 								className={`relative px-3 py-2 text-sm font-medium transition-colors ${
 									pathname === item.href
 										? 'text-primary-600'
-										: 'text-neutral-600 hover:text-primary-600'
+										: 'text-neutral-900 hover:text-primary-600'
 								}`}
 							>
 								{item.name}
@@ -82,11 +82,8 @@ export default function Header() {
 						<Link
 							href="/donate"
 							className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white 
-							transition-all duration-300 bg-primary-600 rounded-lg relative overflow-hidden
-							group hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] hover:scale-105
-							before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-500 before:via-amber-400 before:to-orange-500
-							before:translate-x-[-100%] before:hover:translate-x-[100%] before:transition-transform before:duration-700
-							before:opacity-50 before:hover:opacity-100"
+							transition-all duration-300 bg-secondary-500 rounded-lg 
+							hover:bg-secondary-600 hover:shadow-md hover:scale-105"
 						>
 							<span className="relative z-10">Donate</span>
 						</Link>
@@ -132,7 +129,7 @@ export default function Header() {
 							transition={{ duration: 0.3 }}
 							className="md:hidden"
 						>
-							<div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg shadow-lg mt-2">
+							<div className="px-2 pt-2 pb-3 space-y-1 bg-neutral-50 rounded-lg shadow-lg mt-2">
 								{navItems.map((item, i) => (
 									<motion.div
 										key={item.name}
@@ -147,7 +144,7 @@ export default function Header() {
 											className={`block px-3 py-2 rounded-md text-base font-medium ${
 												pathname === item.href
 													? 'text-primary-600 bg-primary-50'
-													: 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-50'
+													: 'text-neutral-900 hover:text-primary-600 hover:bg-neutral-100'
 											}`}
 											onClick={() => setIsMobileMenuOpen(false)}
 										>
@@ -165,12 +162,8 @@ export default function Header() {
 									<Link
 										href="/donate"
 										className="block w-full text-center px-3 py-2 rounded-md text-base font-medium 
-										text-white bg-primary-600 relative overflow-hidden
-										group hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] hover:scale-105
-										transition-all duration-300
-										before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-500 before:via-amber-400 before:to-orange-500
-										before:translate-x-[-100%] before:hover:translate-x-[100%] before:transition-transform before:duration-700
-										before:opacity-50 before:hover:opacity-100"
+										text-white bg-secondary-500 transition-all duration-300
+										hover:bg-secondary-600 hover:shadow-md"
 										onClick={() => setIsMobileMenuOpen(false)}
 									>
 										<span className="relative z-10">Donate</span>
