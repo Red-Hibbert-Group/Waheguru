@@ -22,48 +22,49 @@ export default function Hero() {
 				/>
 			</div>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-				<div className="grid lg:grid-cols-2 gap-12 items-center">
+			<div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
+				<div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 					{/* Content */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="text-center lg:text-left space-y-8 pb-32 sm:pb-0"
+						className="text-center lg:text-left space-y-4 sm:space-y-6 pb-32 sm:pb-40 lg:pb-0 mt-8 sm:mt-0"
 					>
-						<div className="space-y-4">
-							<h2 className="text-lg font-medium text-primary-600 tracking-wide uppercase">
+						<div className="space-y-2 sm:space-y-3">
+							<h2 className="text-sm sm:text-base md:text-lg font-medium text-primary-600 tracking-wide uppercase">
 								Welcome to Waheguru
 							</h2>
-							<h1 className="text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight">
+							<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900 leading-tight sm:leading-tight md:leading-tight">
 								Empowering Communities Through{' '}
 								<span className="text-primary-600">Seva</span>
 							</h1>
 						</div>
 						
-						<p className="text-xl text-neutral-700 leading-relaxed max-w-2xl">
+						<p className="text-base sm:text-lg md:text-xl text-neutral-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
 							Join us in making a difference. Your contribution helps us create
 							lasting positive change in communities around the world.
 						</p>
 
-						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 sm:mb-0">
+						<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start px-4 sm:px-0">
 							<Link
 								href="/donate"
-								className="inline-flex items-center justify-center px-8 py-4 text-lg
-								font-semibold text-white bg-secondary-500 rounded-xl hover:bg-secondary-600
-								transform hover:scale-105 transition-all duration-300 shadow-lg
-								hover:shadow-secondary-300/50"
+								className="inline-flex items-center justify-center px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 
+								text-sm sm:text-base md:text-lg font-semibold text-white bg-secondary-500 rounded-lg sm:rounded-xl 
+								hover:bg-secondary-600 transform hover:scale-105 transition-all duration-300 shadow-lg
+								hover:shadow-secondary-300/50 whitespace-nowrap"
 							>
 								Donate Now
-								<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+								<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
 									<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
 								</svg>
 							</Link>
 							<Link
 								href="/about"
-								className="inline-flex items-center justify-center px-8 py-4 text-lg
-								font-semibold text-neutral-900 bg-primary-400 rounded-xl hover:bg-primary-500
-								transform hover:scale-105 transition-all duration-300 border-2 border-primary-500"
+								className="inline-flex items-center justify-center px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 
+								text-sm sm:text-base md:text-lg font-semibold text-neutral-900 bg-primary-400 rounded-lg sm:rounded-xl 
+								hover:bg-primary-500 transform hover:scale-105 transition-all duration-300 
+								border-2 border-primary-500 whitespace-nowrap"
 							>
 								Learn More
 							</Link>
@@ -100,23 +101,23 @@ export default function Hero() {
 				transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
 				className="absolute bottom-0 left-0 right-0 bg-primary-500/90 backdrop-blur-lg"
 			>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-						<div className="space-y-2">
-							<h3 className="text-3xl font-bold text-neutral-900">3+</h3>
-							<p className="text-neutral-800">Gurdwaras</p>
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-8 text-center">
+						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
+							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">3+</h3>
+							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Gurdwaras</p>
 						</div>
-						<div className="space-y-2">
-							<h3 className="text-3xl font-bold text-neutral-900">1000+</h3>
-							<p className="text-neutral-800">Daily Meals Served</p>
+						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
+							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">1000+</h3>
+							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Daily Meals</p>
 						</div>
-						<div className="space-y-2">
-							<h3 className="text-3xl font-bold text-neutral-900">50+</h3>
-							<p className="text-neutral-800">Community Events</p>
+						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
+							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">50+</h3>
+							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Events</p>
 						</div>
-						<div className="space-y-2">
-							<h3 className="text-3xl font-bold text-neutral-900">5000+</h3>
-							<p className="text-neutral-800">Members</p>
+						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
+							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">5000+</h3>
+							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Members</p>
 						</div>
 					</div>
 				</div>
