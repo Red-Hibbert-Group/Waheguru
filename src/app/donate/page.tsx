@@ -12,10 +12,31 @@ export default function Donate() {
 	const [amount, setAmount] = useState('')
 	const [donationType, setDonationType] = useState('one-time')
 	const [isLoading, setIsLoading] = useState(false)
+	const [isCustom, setIsCustom] = useState(false)
 	const [step, setStep] = useState(1) // 1: amount selection, 2: payment details
 
 	// Predefined donation amounts
-	const donationAmounts = ['25', '50', '100', '250', '500']
+	const donationAmounts = ['1', '5', '11', '51', '101']
+
+	// Stripe URLs for different amounts
+	const stripeUrls = {
+		monthly: {
+			'1': 'https://buy.stripe.com/6oEbJ9eIb62u7Bu14d',
+			'5': 'https://buy.stripe.com/14k14varVbmOf3W9AI',
+			'11': 'https://buy.stripe.com/9AQ28zdE74Yq3ledR0',
+			'51': 'https://buy.stripe.com/6oEfZp43x3UmcVO4gr',
+			'101': 'https://buy.stripe.com/bIY28zdE78aC2habIU',
+			'custom': 'https://donate.stripe.com/eVa00r8jN76ybRK00d'
+		},
+		'one-time': {
+			'1': 'https://donate.stripe.com/28o8wX57B1MeaNGcMP',
+			'5': 'https://donate.stripe.com/5kA5kL43xduW0925kq',
+			'11': 'https://donate.stripe.com/fZe00r7fJ62ucVO6os',
+			'51': 'https://donate.stripe.com/bIY5kL7fJcqS4pi9AC',
+			'101': 'https://donate.stripe.com/14kdRhdE7cqS3lebIN',
+			'custom': 'https://donate.stripe.com/aEU14v6bFcqS7Bu14b'
+		}
+	}
 
 	// Animation variants
 	const containerVariants = {
@@ -37,24 +58,37 @@ export default function Donate() {
 	// Handle donation submission
 	const handleDonate = async (e: React.FormEvent) => {
 		e.preventDefault()
-		if (!amount || isLoading) return
+		if (isLoading) return
 		
 		setIsLoading(true)
 		
 		try {
-			// Redirect to Stripe donation page with amount and type
-			const baseUrl = 'https://donate.stripe.com/28o8wX57B1MeaNGcMP'
-			const params = new URLSearchParams({
-				amount: String(Number(amount) * 100), // Convert to cents
-				recurring: donationType === 'monthly' ? 'true' : 'false'
-			})
-			window.location.href = `${baseUrl}?${params.toString()}`
+			// Get the appropriate URL based on donation type and amount
+			const urls = stripeUrls[donationType as keyof typeof stripeUrls]
+			const targetUrl = isCustom || !donationAmounts.includes(amount) ? 
+				urls.custom : 
+				urls[amount as keyof typeof urls]
+
+			// Redirect to the appropriate Stripe page
+			window.location.href = targetUrl
 		} catch (error) {
 			console.error('Navigation error:', error)
 			alert('Failed to open donation page. Please try again.')
 		} finally {
 			setIsLoading(false)
 		}
+	}
+
+	// Handle amount selection
+	const handleAmountSelect = (amt: string) => {
+		setAmount(amt)
+		setIsCustom(false)
+	}
+
+	// Handle custom amount button click
+	const handleCustomClick = () => {
+		setAmount('')
+		setIsCustom(true)
 	}
 
 	return (
@@ -133,29 +167,29 @@ export default function Donate() {
 											key={amt}
 											type="button"
 											className={`py-4 px-4 rounded-lg text-lg font-medium transition-all duration-300 
-											${amount === amt
+											${amount === amt && !isCustom
 												? 'bg-orange-600 text-white shadow-md scale-105'
 												: 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
 											}`}
-											onClick={() => setAmount(amt)}
+											onClick={() => handleAmountSelect(amt)}
 										>
-											${amt}
+											${amt}{donationType === 'monthly' ? ' Monthly' : ''}
 										</button>
 									))}
 									<button
 										type="button"
 										className={`py-4 px-4 rounded-lg text-lg font-medium transition-all duration-300 
-										${!donationAmounts.includes(amount) && amount !== ''
+										${isCustom
 											? 'bg-orange-600 text-white shadow-md scale-105'
 											: 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
 										}`}
-										onClick={() => setAmount('')}
+										onClick={handleCustomClick}
 									>
 										Custom
 									</button>
 								</div>
 
-								{(!donationAmounts.includes(amount) || amount === '') && (
+								{isCustom && (
 									<div className="mt-4">
 										<div className="relative">
 											<span className="absolute inset-y-0 left-0 flex items-center pl-4 text-lg font-medium text-gray-700">
