@@ -9,11 +9,14 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@stripe/react-stripe-js": "^3.6.0",
+		"@stripe/stripe-js": "^7.0.0",
 		"framer-motion": "^12.6.2",
 		"next": "latest",
 		"react": "latest",
 		"react-countup": "^6.5.3",
-		"react-dom": "latest"
+		"react-dom": "latest",
+		"stripe": "^18.0.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.5.10",

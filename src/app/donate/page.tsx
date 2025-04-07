@@ -3,6 +3,10 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { loadStripe } from '@stripe/stripe-js'
+
+// Initialize Stripe
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function Donate() {
 	const [amount, setAmount] = useState('')
@@ -33,14 +37,24 @@ export default function Donate() {
 	// Handle donation submission
 	const handleDonate = async (e: React.FormEvent) => {
 		e.preventDefault()
+		if (!amount || isLoading) return
+		
 		setIsLoading(true)
 		
-		// Simulating Stripe redirect
-		setTimeout(() => {
+		try {
+			// Redirect to Stripe donation page with amount and type
+			const baseUrl = 'https://donate.stripe.com/28o8wX57B1MeaNGcMP'
+			const params = new URLSearchParams({
+				amount: String(Number(amount) * 100), // Convert to cents
+				recurring: donationType === 'monthly' ? 'true' : 'false'
+			})
+			window.location.href = `${baseUrl}?${params.toString()}`
+		} catch (error) {
+			console.error('Navigation error:', error)
+			alert('Failed to open donation page. Please try again.')
+		} finally {
 			setIsLoading(false)
-			// In a real implementation, we would redirect to Stripe checkout here
-			alert(`Processing donation of $${amount} (${donationType})`)
-		}, 1500)
+		}
 	}
 
 	return (

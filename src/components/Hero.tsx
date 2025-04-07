@@ -29,7 +29,7 @@ export default function Hero() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="text-center lg:text-left space-y-4 sm:space-y-6 pb-32 sm:pb-40 lg:pb-0 mt-8 sm:mt-0"
+						className="text-center lg:text-left space-y-4 sm:space-y-6 mt-8 sm:mt-0"
 					>
 						<div className="space-y-2 sm:space-y-3">
 							<h2 className="text-sm sm:text-base md:text-lg font-medium text-primary-600 tracking-wide uppercase">
@@ -93,35 +93,6 @@ export default function Hero() {
 					</motion.div>
 				</div>
 			</div>
-
-			{/* Stats Section */}
-			<motion.div
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-				className="absolute bottom-0 left-0 right-0 bg-primary-500/90 backdrop-blur-lg"
-			>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-8 text-center">
-						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
-							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">3+</h3>
-							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Gurdwaras</p>
-						</div>
-						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
-							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">1000+</h3>
-							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Daily Meals</p>
-						</div>
-						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
-							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">50+</h3>
-							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Events</p>
-						</div>
-						<div className="space-y-0.5 sm:space-y-1 md:space-y-2">
-							<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900">5000+</h3>
-							<p className="text-xs sm:text-sm md:text-base text-neutral-800">Members</p>
-						</div>
-					</div>
-				</div>
-			</motion.div>
 		</section>
 	)
 } 
