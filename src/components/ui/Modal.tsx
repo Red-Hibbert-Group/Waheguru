@@ -11,7 +11,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef(null)
   
   // Close on escape key
   useEffect(() => {

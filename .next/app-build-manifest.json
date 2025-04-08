@@ -1,20 +1,20 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/locations/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/locations/page.js"
+      "static/chunks/app/page.js"
+    ],
+    "/faith/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/faith/page.js"
     ],
     "/about/page": [
       "static/chunks/webpack.js",
@@ -26,10 +26,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/community-support/page.js"
     ],
-    "/donate/page": [
+    "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/donate/page.js"
+      "static/chunks/app/contact/page.js"
+    ],
+    "/naam-japo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/naam-japo/page.js"
     ]
   }
 }
