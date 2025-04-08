@@ -1,12 +1,13 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion' 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 
 export default function Locations() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const [selectedLocation, setSelectedLocation] = useState(null)
 
   // Location data
   const locations = [
@@ -18,7 +19,10 @@ export default function Locations() {
       coordinates: {
         lat: 37.560087,
         lng: -121.994900
-      }
+      },
+      description: "Our main center offering daily prayers, langar services, and community programs.",
+      facilities: ["Prayer Hall", "Langar Hall", "Library", "Community Center"],
+      programs: ["Daily Prayers", "Sunday School", "Youth Activities", "Community Service"]
     },
     {
       name: "Waheguru Sikh Center Tracy",
@@ -28,7 +32,10 @@ export default function Locations() {
       coordinates: {
         lat: 37.735968,
         lng: -121.352483
-      }
+      },
+      description: "A vibrant center serving the Tracy community with spiritual and social services.",
+      facilities: ["Prayer Hall", "Langar Hall", "Meeting Rooms", "Parking"],
+      programs: ["Daily Prayers", "Community Outreach", "Cultural Events", "Education Programs"]
     },
     {
       name: "Waheguru Sikh Center Manteca",
@@ -38,7 +45,10 @@ export default function Locations() {
       coordinates: {
         lat: 37.784772,
         lng: -121.217711
-      }
+      },
+      description: "A growing center dedicated to serving the Manteca community with love and compassion.",
+      facilities: ["Prayer Hall", "Langar Hall", "Youth Center", "Sports Facilities"],
+      programs: ["Daily Prayers", "Sports Activities", "Youth Programs", "Community Service"]
     }
   ]
 
@@ -119,7 +129,7 @@ export default function Locations() {
               </div>
 
               <div className="p-6">
-                <div className="mb-4 flex items-start">
+                <div className="flex flex-col md:flex-row items-start mb-4">
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5" 
@@ -143,7 +153,7 @@ export default function Locations() {
                   <p className="text-neutral-700">{location.address}</p>
                 </div>
 
-                <div className="mb-4 flex items-start">
+                <div className="flex flex-col md:flex-row items-start mb-4">
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5" 
@@ -167,7 +177,7 @@ export default function Locations() {
                   </div>
                 </div>
 
-                <div className="mb-6 flex items-start">
+                <div className="flex flex-col md:flex-row items-start mb-6">
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5" 
@@ -209,12 +219,12 @@ export default function Locations() {
                     </svg>
                   </Link>
                   
-                  <Link
-                    href={`/locations/${location.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  <button
+                    onClick={() => setSelectedLocation(location)}
                     className="text-white bg-secondary-500 hover:bg-secondary-600 px-4 py-2 rounded-lg transition-colors font-medium"
                   >
                     Details
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -251,6 +261,107 @@ export default function Locations() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Location Details Modal */}
+      {selectedLocation && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900">{selectedLocation.name}</h3>
+                <button
+                  onClick={() => setSelectedLocation(null)}
+                  className="text-neutral-500 hover:text-neutral-700"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-semibold text-neutral-900">Address</h4>
+                      <p className="text-neutral-600">{selectedLocation.address}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-semibold text-neutral-900">Contact</h4>
+                      {selectedLocation.phoneNumbers.map((phone, idx) => (
+                        <p key={idx} className="text-neutral-600">
+                          <a href={`tel:${phone.replace(/[^0-9+]/g, '')}`} className="hover:text-primary-600">
+                            {phone}
+                          </a>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-semibold text-neutral-900">Hours</h4>
+                      <p className="text-neutral-600">{selectedLocation.schedule}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-neutral-900 mb-2">Description</h4>
+                    <p className="text-neutral-600">{selectedLocation.description}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-neutral-900 mb-2">Facilities</h4>
+                    <ul className="list-disc list-inside text-neutral-600">
+                      {selectedLocation.facilities.map((facility, idx) => (
+                        <li key={idx}>{facility}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-neutral-900 mb-2">Programs</h4>
+                    <ul className="list-disc list-inside text-neutral-600">
+                      {selectedLocation.programs.map((program, idx) => (
+                        <li key={idx}>{program}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex justify-end">
+                <Link
+                  href={`https://maps.google.com/?q=${selectedLocation.coordinates.lat},${selectedLocation.coordinates.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                >
+                  View on Google Maps
+                  <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 } 

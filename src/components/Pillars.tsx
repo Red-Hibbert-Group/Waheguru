@@ -243,7 +243,7 @@ export default function Pillars() {
           className="mt-16 text-center"
         >
           <Link
-            href="/sikh-faith"
+            href="/faith"
             className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-800 text-white hover:bg-neutral-700 
             transition-colors duration-300 shadow-md"
           >

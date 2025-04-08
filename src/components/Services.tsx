@@ -68,7 +68,7 @@ export default function Services() {
 					<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 				</svg>
 			),
-			link: '/services/support',
+			link: '/services/community-support',
 		},
 		{
 			title: 'Youth Activities',
@@ -81,7 +81,7 @@ export default function Services() {
 					<circle cx="18" cy="16" r="3"></circle>
 				</svg>
 			),
-			link: '/services/youth',
+			link: '/services/youth-activities',
 		},
 		{
 			title: 'Cultural Events',
@@ -95,7 +95,7 @@ export default function Services() {
 					<line x1="3" y1="10" x2="21" y2="10"></line>
 				</svg>
 			),
-			link: '/services/events',
+			link: '/services/cultural-events',
 		},
 	]
 
