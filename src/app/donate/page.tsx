@@ -1,19 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { loadStripe } from '@stripe/stripe-js'
-
-// Initialize Stripe
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function Donate() {
 	const [amount, setAmount] = useState('')
 	const [donationType, setDonationType] = useState('one-time')
 	const [isLoading, setIsLoading] = useState(false)
 	const [isCustom, setIsCustom] = useState(false)
-	const [step, setStep] = useState(1) // 1: amount selection, 2: payment details
 
 	// Predefined donation amounts
 	const donationAmounts = ['1', '5', '11', '51', '101']
@@ -38,25 +32,8 @@ export default function Donate() {
 		}
 	}
 
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: { 
-			opacity: 1,
-			transition: { 
-				staggerChildren: 0.1,
-				delayChildren: 0.2
-			}
-		}
-	}
-
-	const itemVariants = {
-		hidden: { y: 20, opacity: 0 },
-		visible: { y: 0, opacity: 1 }
-	}
-
 	// Handle donation submission
-	const handleDonate = async (e: React.FormEvent) => {
+	const handleDonate = (e: React.FormEvent) => {
 		e.preventDefault()
 		if (isLoading) return
 		
@@ -65,9 +42,15 @@ export default function Donate() {
 		try {
 			// Get the appropriate URL based on donation type and amount
 			const urls = stripeUrls[donationType as keyof typeof stripeUrls]
-			const targetUrl = isCustom || !donationAmounts.includes(amount) ? 
-				urls.custom : 
-				urls[amount as keyof typeof urls]
+			let targetUrl
+
+			if (isCustom) {
+				targetUrl = urls.custom
+			} else if (donationAmounts.includes(amount)) {
+				targetUrl = urls[amount as keyof typeof urls]
+			} else {
+				targetUrl = urls.custom
+			}
 
 			// Redirect to the appropriate Stripe page
 			window.location.href = targetUrl
@@ -79,28 +62,10 @@ export default function Donate() {
 		}
 	}
 
-	// Handle amount selection
-	const handleAmountSelect = (amt: string) => {
-		setAmount(amt)
-		setIsCustom(false)
-	}
-
-	// Handle custom amount button click
-	const handleCustomClick = () => {
-		setAmount('')
-		setIsCustom(true)
-	}
-
 	return (
 		<div className="min-h-screen bg-gradient-to-r from-primary-50 via-neutral-50 to-secondary-50 relative overflow-hidden">
-			{/* Content container */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-				<motion.div
-					initial={{ opacity: 0, y: 30 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.7 }}
-					className="text-center mb-16"
-				>
+				<div className="text-center mb-16">
 					<h1 className="text-5xl font-bold text-gray-900 mb-4">
 						Make a <span className="text-orange-600">Difference</span> Today
 					</h1>
@@ -108,26 +73,17 @@ export default function Donate() {
 						Your generous donation supports our mission to empower communities through Seva.
 						Every contribution, no matter the size, helps us create lasting positive change.
 					</p>
-				</motion.div>
+				</div>
 
 				<div className="grid md:grid-cols-2 gap-12">
-					{/* Donation Form */}
-					<motion.div
-						variants={containerVariants}
-						initial="hidden"
-						animate="visible"
-						className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative overflow-hidden"
-					>
-						{/* Decorative Elements */}
+					<div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative overflow-hidden">
 						<div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-bl-full -z-10 opacity-70"></div>
 						<div className="absolute bottom-0 left-0 w-24 h-24 bg-yellow-100 rounded-tr-full -z-10 opacity-70"></div>
 
-						<motion.h2 variants={itemVariants} className="text-3xl font-bold text-gray-900 mb-8">
-							Your Donation
-						</motion.h2>
+						<h2 className="text-3xl font-bold text-gray-900 mb-8">Your Donation</h2>
 
 						<form onSubmit={handleDonate}>
-							<motion.div variants={itemVariants} className="mb-8">
+							<div className="mb-8">
 								<label className="block text-lg font-medium text-gray-700 mb-4">
 									Choose Donation Type
 								</label>
@@ -155,9 +111,9 @@ export default function Donate() {
 										Monthly Donation
 									</button>
 								</div>
-							</motion.div>
+							</div>
 
-							<motion.div variants={itemVariants} className="mb-8">
+							<div className="mb-8">
 								<label className="block text-lg font-medium text-gray-700 mb-4">
 									Select Amount
 								</label>
@@ -171,7 +127,10 @@ export default function Donate() {
 												? 'bg-orange-600 text-white shadow-md scale-105'
 												: 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
 											}`}
-											onClick={() => handleAmountSelect(amt)}
+											onClick={() => {
+												setAmount(amt)
+												setIsCustom(false)
+											}}
 										>
 											${amt}{donationType === 'monthly' ? ' Monthly' : ''}
 										</button>
@@ -183,7 +142,10 @@ export default function Donate() {
 											? 'bg-orange-600 text-white shadow-md scale-105'
 											: 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
 										}`}
-										onClick={handleCustomClick}
+										onClick={() => {
+											setAmount('')
+											setIsCustom(true)
+										}}
 									>
 										Custom
 									</button>
@@ -207,15 +169,9 @@ export default function Donate() {
 										</div>
 									</div>
 								)}
-							</motion.div>
+							</div>
 
-							<motion.div 
-								variants={itemVariants}
-								className="mb-6"
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ delay: 0.6 }}
-							>
+							<div className="mb-6">
 								<p className="text-lg mb-2">
 									{donationType === 'one-time' ? (
 										<span className="font-medium">
@@ -232,20 +188,15 @@ export default function Donate() {
 								<p className="text-gray-600">
 									Your donation will support our community programs, langar services, and educational initiatives.
 								</p>
-							</motion.div>
+							</div>
 
-							<motion.div variants={itemVariants} className="mt-8">
+							<div className="mt-8">
 								<button
 									type="submit"
 									disabled={!amount || isLoading}
 									className={`w-full py-4 px-6 rounded-xl text-xl font-semibold text-white
 									transition-all duration-300 relative overflow-hidden
-									group hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] 
-									${isLoading ? 'bg-orange-400 cursor-not-allowed' : 'bg-orange-600 hover:bg-orange-700 hover:scale-[1.02]'}
-									before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-500 before:via-amber-400 before:to-orange-500
-									before:translate-x-[-100%] before:hover:translate-x-[100%] before:transition-transform before:duration-700
-									before:opacity-50 before:hover:opacity-100
-									`}
+									${isLoading ? 'bg-orange-400 cursor-not-allowed' : 'bg-orange-600 hover:bg-orange-700'}`}
 								>
 									<span className="relative z-10 flex items-center justify-center">
 										{isLoading ? (
@@ -263,18 +214,12 @@ export default function Donate() {
 										)}
 									</span>
 								</button>
-							</motion.div>
+							</div>
 						</form>
-					</motion.div>
+					</div>
 
-					{/* Impact Section */}
 					<div className="space-y-8">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.7, delay: 0.2 }}
-							className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl"
-						>
+						<div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
 							<h2 className="text-2xl font-semibold text-primary-700 mb-6">
 								Your Impact
 							</h2>
@@ -313,14 +258,9 @@ export default function Donate() {
 									</div>
 								</div>
 							</div>
-						</motion.div>
+						</div>
 
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.7, delay: 0.4 }}
-							className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl"
-						>
+						<div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
 							<h2 className="text-2xl font-semibold text-primary-700 mb-4">
 								Other Ways to Support
 							</h2>
@@ -350,7 +290,7 @@ export default function Donate() {
 									Consider a planned gift or bequest
 								</li>
 							</ul>
-						</motion.div>
+						</div>
 					</div>
 				</div>
 			</div>
