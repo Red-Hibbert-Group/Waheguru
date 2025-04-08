@@ -1,3 +1,8 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/naam-japo/page": "app/naam-japo/page.js",
+  "/kirat-karo/page": "app/kirat-karo/page.js",
+  "/vand-chhako/page": "app/vand-chhako/page.js",
+  "/services/langar/page": "app/services/langar/page.js"
 }
