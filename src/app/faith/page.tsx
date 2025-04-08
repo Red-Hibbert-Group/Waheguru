@@ -59,15 +59,16 @@ export default function FaithPage() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-primary-50 via-neutral-50 to-secondary-50">
       {/* Hero Section */}
-      <div className="relative h-[40vh] w-full">
+      <div className="relative h-[60vh] md:h-[70vh] w-full">
         <Image
           src="/images/667c8ef5919336892cfe67e2_Main.jpg"
           alt="Sikh Faith"
           fill
           className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white text-center px-4 mt-16">
             Sikh Faith & Philosophy
           </h1>
         </div>

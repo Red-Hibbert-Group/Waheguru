@@ -54,15 +54,17 @@ export default function LocationsPage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {locations.map((location, index) => (
             <div key={index} className="bg-white border border-neutral-200 rounded-xl shadow-lg overflow-hidden">
-              <Image
-                src={location.image}
-                alt={location.name}
-                width={500}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={location.image}
+                  alt={location.name}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20" />
+              </div>
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-2">{location.name}</h2>
+                <h2 className="text-2xl font-bold mb-4">{location.name}</h2>
                 <p className="text-neutral-700 mb-4">{location.description}</p>
                 <div className="flex flex-col mb-4">
                   <h4 className="font-semibold text-neutral-900">Address</h4>
