@@ -3,8 +3,21 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
+interface Activity {
+  title: string
+  description: string
+  schedule: string
+  icon: string
+}
+
+interface Benefit {
+  title: string
+  description: string
+  icon: string
+}
+
 export default function YouthActivities() {
-  const activities = [
+  const activities: Activity[] = [
     {
       title: "Sports Programs",
       description: "Weekly sports activities including basketball, soccer, and gatka training.",
@@ -31,7 +44,7 @@ export default function YouthActivities() {
     }
   ]
 
-  const benefits = [
+  const benefits: Benefit[] = [
     {
       title: "Personal Growth",
       description: "Develop leadership skills and self-confidence",

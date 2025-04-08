@@ -3,8 +3,21 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
+interface Event {
+  title: string
+  description: string
+  date: string
+  icon: string
+}
+
+interface Highlight {
+  title: string
+  description: string
+  icon: string
+}
+
 export default function CulturalEvents() {
-  const events = [
+  const events: Event[] = [
     {
       title: "Vaisakhi Celebration",
       description: "Annual celebration of the birth of Khalsa with kirtan, cultural performances, and langar.",
@@ -31,7 +44,7 @@ export default function CulturalEvents() {
     }
   ]
 
-  const highlights = [
+  const highlights: Highlight[] = [
     {
       title: "Live Performances",
       description: "Traditional music and dance performances",
