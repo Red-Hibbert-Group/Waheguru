@@ -247,126 +247,82 @@ export default function Locations() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <Link
-            href="/locations"
-            className="inline-flex items-center justify-center bg-primary-500 text-neutral-900 
-            px-8 py-3 text-lg font-semibold rounded-xl 
-            hover:bg-primary-600 transform hover:scale-105 transition-all duration-300 shadow-lg"
+          <Link 
+            href="/locations" 
+            className="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-primary-700 transition-colors"
           >
             View All Locations
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="ml-2 w-5 h-5" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M14 5l7 7m0 0l-7 7m7-7H3" 
-              />
-            </svg>
           </Link>
         </motion.div>
       </div>
 
       {/* Location Details Modal */}
       {selectedLocation && (
-        <Modal
-          isOpen={Boolean(selectedLocation)}
+        <Modal 
+          isOpen={!!selectedLocation} 
           onClose={() => setSelectedLocation(null)}
           title={selectedLocation.name}
         >
           <div>
-            <div className="relative h-60 mb-6 rounded-lg overflow-hidden">
-              <Image 
-                src={selectedLocation.image}
-                alt={selectedLocation.name}
-                fill
-                className="object-cover"
-              />
+            <div className="mb-4">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Description</h4>
+              <p className="text-neutral-700">{selectedLocation.description}</p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <div>
-                    <h4 className="font-semibold text-neutral-900">Address</h4>
-                    <p className="text-neutral-600">{selectedLocation.address}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <div>
-                    <h4 className="font-semibold text-neutral-900">Contact</h4>
-                    {selectedLocation.phoneNumbers.map((phone, idx) => (
-                      <p key={idx} className="text-neutral-600">
-                        <a href={`tel:${phone.replace(/[^0-9+]/g, '')}`} className="hover:text-primary-600">
-                          {phone}
-                        </a>
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <svg className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <h4 className="font-semibold text-neutral-900">Hours</h4>
-                    <p className="text-neutral-600">{selectedLocation.schedule}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-neutral-900 mb-2">Description</h4>
-                  <p className="text-neutral-600">{selectedLocation.description}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-neutral-900 mb-2">Facilities</h4>
-                  <ul className="list-disc list-inside text-neutral-600">
-                    {selectedLocation.facilities.map((facility, idx) => (
-                      <li key={idx}>{facility}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-neutral-900 mb-2">Programs</h4>
-                  <ul className="list-disc list-inside text-neutral-600">
-                    {selectedLocation.programs.map((program, idx) => (
-                      <li key={idx}>{program}</li>
-                    ))}
-                  </ul>
-                </div>
+            
+            <div className="mb-4">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Address</h4>
+              <p className="text-neutral-700">{selectedLocation.address}</p>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Contact</h4>
+              {selectedLocation.phoneNumbers.map((phone, idx) => (
+                <p key={idx} className="text-neutral-700">{phone}</p>
+              ))}
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Hours</h4>
+              <p className="text-neutral-700">{selectedLocation.schedule}</p>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Facilities</h4>
+              <div className="flex flex-wrap gap-2">
+                {selectedLocation.facilities.map((facility, idx) => (
+                  <span 
+                    key={idx} 
+                    className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm"
+                  >
+                    {facility}
+                  </span>
+                ))}
               </div>
             </div>
-
-            <div className="mt-6 flex justify-end">
-              <Link
+            
+            <div className="mb-6">
+              <h4 className="text-lg font-medium text-neutral-900 mb-2">Programs</h4>
+              <div className="flex flex-wrap gap-2">
+                {selectedLocation.programs.map((program, idx) => (
+                  <span 
+                    key={idx} 
+                    className="bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm"
+                  >
+                    {program}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex justify-end">
+              <a 
                 href={`https://maps.google.com/?q=${selectedLocation.coordinates.lat},${selectedLocation.coordinates.lng}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
               >
-                View on Google Maps
-                <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </Link>
+                Get Directions
+              </a>
             </div>
           </div>
         </Modal>
