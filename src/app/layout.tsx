@@ -21,6 +21,7 @@ const merriweather = Merriweather({
 })
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://waheguru.org'),
 	title: 'Waheguru - Empowering Communities Through Seva',
 	description: 'Join us in making a difference. Your contribution helps us create lasting positive change in communities around the world through Sikh values and principles.',
 	keywords: 'Sikh, Gurdwara, Community Service, Seva, Education, Langar, California',
