@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
-import Logo from '@/components/Logo'
 
 export default function KiratKaroPage() {
   const [activeQuote, setActiveQuote] = useState(0)
