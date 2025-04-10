@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 const philosophicalConcepts = [
   {
@@ -58,8 +59,8 @@ const philosophicalConcepts = [
 
 export default function SikhPhilosophyPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main className="min-h-screen bg-gradient-to-r from-primary-50 via-neutral-50 to-secondary-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -150,25 +151,15 @@ export default function SikhPhilosophyPage() {
         ))}
 
         {/* Navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex justify-center gap-4"
-        >
-          <Link 
-            href="/"
-            className="inline-block bg-orange-100 text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-200 transition-colors duration-200"
-          >
-            Back to Home
-          </Link>
-          <Link 
-            href="/contact"
-            className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-600 transition-colors duration-200"
-          >
-            Get in Touch
-          </Link>
-        </motion.div>
+        <nav className="bg-white/80 backdrop-blur-sm shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <Logo isScrolled={true} />
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </main>
   )

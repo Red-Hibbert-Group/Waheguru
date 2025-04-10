@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Logo from '@/components/Logo'
 
 export default function About() {
 	return (

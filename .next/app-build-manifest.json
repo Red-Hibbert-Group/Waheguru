@@ -1,213 +1,80 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/667-feaee355fe8ec489.js",
-      "static/chunks/app/page-3cfc99f45d9f6d8c.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/css/aa01e08799326313.css",
-      "static/chunks/app/layout-e58e675bb92be6f9.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
-    "/events/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/app/events/page-1338a8ce1bffdd57.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/app/contact/page-01ccaaf053607bab.js"
-    ],
-    "/donate/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/app/donate/page-3cae74527f28668e.js"
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/info/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/app/info/page-2749ce4f9aafa81e.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/info/page.js"
     ],
-    "/kirat-karo/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/app/kirat-karo/page-6d792f472c8c5531.js"
-    ],
-    "/faith/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/app/faith/page-6f9d90c17b71e9a6.js"
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
     ],
     "/about/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/app/about/page-c72ab286ae7f4a8f.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
     ],
-    "/locations/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/222-7bf0a8675ec4811e.js",
-      "static/chunks/app/locations/page-711a616d3541774b.js"
-    ],
-    "/learn/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/app/learn/page-41ff8b42fd161218.js"
+    "/donate/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/donate/page.js"
     ],
     "/naam-japo/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/naam-japo/page-77bfe8ea4e358d2c.js"
-    ],
-    "/services/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/page-57c0316fd96b504a.js"
-    ],
-    "/vand-chhako/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/vand-chhako/page-82ebb13ead33688d.js"
-    ],
-    "/sikh-philosophy/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/sikh-philosophy/page-db1c92a9c3e02ecf.js"
-    ],
-    "/volunteer/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/app/volunteer/page-0638dfcaa259ee26.js"
-    ],
-    "/donate/success/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/donate/success/page-4ff435e3545221ca.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/naam-japo/page.js"
     ],
     "/services/langar/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/langar/page-ddc188b77477e26a.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/langar/page.js"
     ],
-    "/learn/naam-japo/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/app/learn/naam-japo/page-ca405d28e95971e1.js"
+    "/kirat-karo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/kirat-karo/page.js"
     ],
-    "/services/cultural-events/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/cultural-events/page-121c55e7f0fd25ab.js"
-    ],
-    "/services/youth-activities/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/youth-activities/page-ea92eebe0c46f763.js"
-    ],
-    "/services/education/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/education/page-f2492ced60981b69.js"
-    ],
-    "/services/prayer/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/prayer/page-1210bf25e21fa09d.js"
+    "/vand-chhako/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/vand-chhako/page.js"
     ],
     "/services/community-support/page": [
-      "static/chunks/webpack-ce72d4b2c154d0f6.js",
-      "static/chunks/fd9d1056-c2ad140a17e094a3.js",
-      "static/chunks/596-d7b1750a604a1292.js",
-      "static/chunks/main-app-0c4f57903035b060.js",
-      "static/chunks/25-9d0e940a597fce4c.js",
-      "static/chunks/685-b415974d01380712.js",
-      "static/chunks/app/services/community-support/page-cbbe39aa4e6fbd5b.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/community-support/page.js"
+    ],
+    "/services/youth-activities/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/youth-activities/page.js"
+    ],
+    "/services/cultural-events/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/cultural-events/page.js"
+    ],
+    "/services/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/page.js"
+    ],
+    "/volunteer/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/volunteer/page.js"
     ]
   }
 }

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 export default function Info() {
 	return (

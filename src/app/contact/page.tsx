@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Logo from '@/components/Logo'
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -18,7 +19,8 @@ export default function Contact() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-r from-primary-50 via-neutral-50 to-secondary-50">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+			{/* Remove navigation section */}
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 				{/* Logo */}
 				<div className="flex justify-center mb-8">
 					<Image
