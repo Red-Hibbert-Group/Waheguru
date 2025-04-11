@@ -22,7 +22,6 @@ export default function Info() {
 							alt="Kartarpur Sahib Gurdwara"
 							fill
 							className="object-cover"
-							priority
 						/>
 					</div>
 				</div>
@@ -35,7 +34,6 @@ export default function Info() {
 							alt="Community Service"
 							fill
 							className="object-cover"
-							priority
 						/>
 					</div>
 					<div className="prose lg:prose-lg">
@@ -70,7 +68,6 @@ export default function Info() {
 							alt="Gurdwara Interior"
 							fill
 							className="object-cover"
-							priority
 						/>
 					</div>
 				</div>
@@ -83,7 +80,6 @@ export default function Info() {
 							alt="Khalsa School"
 							fill
 							className="object-cover"
-							priority
 						/>
 					</div>
 					<div className="prose lg:prose-lg">

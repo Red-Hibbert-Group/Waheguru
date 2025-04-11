@@ -332,15 +332,15 @@ export default function UpcomingEvents() {
 
         {/* Registration Modal */}
         {showRegistrationModal && selectedEvent && (
-          <div className="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm flex items-center justify-center p-4 z-[99999] overflow-hidden">
+          <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-[99999] overflow-hidden">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-white rounded-xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto relative shadow-2xl"
+              className="bg-white rounded-xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto relative shadow-2xl select-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-xl font-bold text-gray-900">Register for Event</h2>
+                <h2 className="text-xl font-bold text-gray-900 select-none">Register for Event</h2>
                 <button 
                   onClick={() => setShowRegistrationModal(false)}
                   className="text-gray-500 hover:text-gray-700"
@@ -351,7 +351,7 @@ export default function UpcomingEvents() {
                 </button>
               </div>
               
-              <h3 className="text-base font-semibold text-orange-600 mb-4">{selectedEvent.title}</h3>
+              <h3 className="text-base font-semibold text-orange-600 mb-4 select-none">{selectedEvent.title}</h3>
               
               <form onSubmit={handleRegister} className="space-y-3">
                 <div>
