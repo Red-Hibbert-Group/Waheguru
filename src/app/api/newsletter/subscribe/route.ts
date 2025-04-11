@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server'
 import { subscribeToNewsletter } from '@/lib/supabase'
 
+export const dynamic = 'force-dynamic' // Mark this route as dynamic
+
+// Define the subscription result type
+type SubscriptionResult = {
+  success: boolean
+  message: string
+  emailSent?: boolean
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -23,7 +32,41 @@ export async function POST(request: Request) {
     }
     
     // Subscribe to newsletter
-    const result = await subscribeToNewsletter(email)
+    const subscriptionResult = await subscribeToNewsletter(email)
+    
+    // Create a new result object of the proper type
+    const result: SubscriptionResult = {
+      success: subscriptionResult.success,
+      message: subscriptionResult.message
+    }
+    
+    // If subscription was successful, send confirmation email
+    if (result.success) {
+      try {
+        // Send confirmation email via API route
+        const emailResponse = await fetch(new URL('/api/newsletter/send-confirmation', request.url).toString(), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        })
+        
+        const emailResult = await emailResponse.json()
+        
+        if (!emailResponse.ok) {
+          console.error('Error sending newsletter confirmation email:', emailResult)
+          // We don't fail the overall subscription if the email fails
+          result.emailSent = false
+        } else {
+          result.emailSent = true
+          result.message = `${result.message} A confirmation email has been sent to your inbox.`
+        }
+      } catch (emailError) {
+        console.error('Failed to send newsletter confirmation email:', emailError)
+        result.emailSent = false
+      }
+    }
     
     return NextResponse.json(result, { 
       status: result.success ? 200 : 400 

@@ -11,6 +11,7 @@ export default function Newsletter() {
   const [errorMessage, setErrorMessage] = useState('')
   const [isRlsError, setIsRlsError] = useState(false)
   const [debugInfo, setDebugInfo] = useState('')
+  const [emailSent, setEmailSent] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -20,6 +21,7 @@ export default function Newsletter() {
     setErrorMessage('')
     setDebugInfo('')
     setIsRlsError(false)
+    setEmailSent(false)
     
     if (!email || email.trim() === '') {
       setErrorMessage('Please enter a valid email address')
@@ -46,6 +48,7 @@ export default function Newsletter() {
       if (result.success) {
         setIsSubmitted(true)
         setEmail('')
+        setEmailSent(!!result.emailSent)
       } else {
         // Check if this is an RLS error and provide a helpful message
         if (result.errorType === 'rls') {
@@ -332,6 +335,11 @@ export default function Newsletter() {
                           </h3>
                           <p className="mt-2 text-sm text-green-700">
                             Thank you for subscribing. You will now receive updates on Gurdwara events and activities.
+                            {emailSent && (
+                              <span className="block mt-1 font-medium">
+                                A confirmation email has been sent to your inbox.
+                              </span>
+                            )}
                           </p>
                         </div>
                       </div>
