@@ -5,6 +5,8 @@ import { generateContactEmailTemplate } from '@/lib/email-templates/contact-conf
 // Initialize Resend with API key
 const resend = new Resend('re_JQWx3euy_8D2grrbT8wCG6GAURADqAVij')
 
+export const dynamic = 'force-dynamic' // Mark this route as dynamic
+
 export async function POST(request: NextRequest) {
   try {
     // Parse the request body

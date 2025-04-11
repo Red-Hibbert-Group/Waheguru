@@ -31,5 +31,9 @@
 		"postcss": "^8.4.31",
 		"tailwindcss": "^3.3.0",
 		"typescript": "latest"
+	},
+	"optionalDependencies": {
+		"bufferutil": "^4.0.9",
+		"utf-8-validate": "^6.0.5"
 	}
 }

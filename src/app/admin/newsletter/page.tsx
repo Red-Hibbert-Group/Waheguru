@@ -13,15 +13,21 @@ type Subscription = {
   created_at: string
 }
 
+// Define the DbStatus type
+type DbStatus = {
+  exists: boolean
+  columns: any[]
+}
+
 export default function NewsletterAdmin() {
-  const [subscriptions, setSubscriptions] = useState<Subscription[]>([])
+  const [subscriptions, setSubscriptions] = useState([] as Subscription[])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [testEmail, setTestEmail] = useState('')
-  const [dbStatus, setDbStatus] = useState<{ exists: boolean; columns: any[] }>({
+  const [dbStatus, setDbStatus] = useState({
     exists: false,
     columns: []
-  })
+  } as DbStatus)
 
   useEffect(() => {
     checkDatabase()

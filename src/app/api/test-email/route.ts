@@ -4,11 +4,13 @@ import { Resend } from 'resend'
 // Initialize Resend with API key
 const resend = new Resend('re_JQWx3euy_8D2grrbT8wCG6GAURADqAVij')
 
+export const dynamic = 'force-dynamic' // Mark this route as dynamic
+
 export async function GET(request: NextRequest) {
   try {
     // Get test email from query params or use a default
-    const url = new URL(request.url)
-    const testEmail = url.searchParams.get('email') || 'test@example.com'
+    const searchParams = request.nextUrl.searchParams
+    const testEmail = searchParams.get('email') || 'test@example.com'
     
     console.log('Sending test email to:', testEmail)
     
