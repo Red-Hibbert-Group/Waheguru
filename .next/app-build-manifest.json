@@ -6,6 +6,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,20 +21,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/info/page.js"
     ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
-    ],
-    "/donate/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/donate/page.js"
     ],
     "/naam-japo/page": [
       "static/chunks/webpack.js",
@@ -46,6 +41,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/vand-chhako/page.js"
     ],
+    "/donate/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/donate/page.js"
+    ],
     "/services/langar/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -56,10 +56,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/prayer/page.js"
     ],
+    "/services/education/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/education/page.js"
+    ],
     "/services/youth-activities/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/services/youth-activities/page.js"
+    ],
+    "/services/cultural-events/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/cultural-events/page.js"
     ],
     "/services/community-support/page": [
       "static/chunks/webpack.js",
@@ -71,20 +81,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/page.js"
     ],
-    "/services/cultural-events/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/cultural-events/page.js"
-    ],
     "/volunteer/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/volunteer/page.js"
-    ],
-    "/services/education/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/education/page.js"
     ]
   }
 }

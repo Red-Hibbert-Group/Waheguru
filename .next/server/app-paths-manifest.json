@@ -1,7 +1,8 @@
 {
   "/page": "app/page.js",
   "/services/page": "app/services/page.js",
-  "/services/community-support/page": "app/services/community-support/page.js",
-  "/services/education/page": "app/services/education/page.js",
+  "/vand-chhako/page": "app/vand-chhako/page.js",
+  "/kirat-karo/page": "app/kirat-karo/page.js",
+  "/naam-japo/page": "app/naam-japo/page.js",
   "/services/cultural-events/page": "app/services/cultural-events/page.js"
 }
