@@ -1,3 +1,5 @@
+'use client'
+
 import { LearnContent } from '@/components/learn/LearnContent'
 
 export default function NaamJapoPage() {
