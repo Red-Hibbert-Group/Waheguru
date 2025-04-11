@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Logo from '@/components/Logo'
+import { submitContactForm } from '@/lib/supabase'
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -10,11 +11,81 @@ export default function Contact() {
 		email: '',
 		message: '',
 	})
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	
+	// Define submitStatus without explicit generic type parameter
+	const [submitStatus, setSubmitStatus] = useState(null as {
+		success?: boolean;
+		message?: string;
+	} | null)
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
-		// Handle form submission logic here
-		console.log('Form submitted:', formData)
+		setIsSubmitting(true)
+		setSubmitStatus(null)
+		
+		try {
+			// 1. Store form submission in the database
+			const result = await submitContactForm(
+				formData.name,
+				formData.email,
+				formData.message
+			)
+			
+			// 2. Send confirmation email if database submission is successful
+			if (result.success) {
+				let emailSent = false
+				let emailError: string | undefined = undefined
+				
+				try {
+					console.log('Sending email to:', formData.email)
+					
+					// Send email via API route
+					const emailResponse = await fetch('/api/send-email', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(formData),
+					})
+					
+					const emailResult = await emailResponse.json()
+					console.log('Email API response:', emailResult)
+					
+					emailSent = emailResponse.ok && emailResult.success
+					
+					if (!emailResponse.ok || !emailResult.success) {
+						emailError = emailResult.error || 'Failed to send confirmation email'
+						console.error('Error sending email:', emailError)
+					}
+				} catch (error) {
+					// Log email error but don't fail the overall submission
+					console.error('Exception when sending confirmation email:', error)
+					emailError = 'Network error when sending email'
+				}
+				
+				// Clear form fields
+				setFormData({ name: '', email: '', message: '' })
+				
+				// Update success message to include email confirmation status
+				if (emailSent) {
+					result.message = `${result.message} A confirmation email has been sent to your inbox.`
+				} else if (emailError) {
+					// Add warning about email failure but keep success status for form submission
+					result.message = `${result.message} However, we couldn't send you a confirmation email (${emailError}). Please check your email address.`
+				}
+			}
+			
+			setSubmitStatus(result)
+		} catch (error) {
+			console.error('Error submitting form:', error)
+			setSubmitStatus({
+				success: false,
+				message: 'Something went wrong. Please try again later.'
+			})
+		} finally {
+			setIsSubmitting(false)
+		}
 	}
 
 	return (
@@ -49,6 +120,12 @@ export default function Contact() {
 				<div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 					{/* Contact Form */}
 					<div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
+						{submitStatus && (
+							<div className={`p-4 mb-6 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+								{submitStatus.message}
+							</div>
+						)}
+						
 						<form onSubmit={handleSubmit} className="space-y-6">
 							<div>
 								<label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">
@@ -63,6 +140,7 @@ export default function Contact() {
 									className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
 									placeholder="Enter your name..."
 									required
+									disabled={isSubmitting}
 								/>
 							</div>
 
@@ -79,6 +157,7 @@ export default function Contact() {
 									className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
 									placeholder="Enter your email..."
 									required
+									disabled={isSubmitting}
 								/>
 							</div>
 
@@ -95,16 +174,18 @@ export default function Contact() {
 									className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
 									placeholder="Your message..."
 									required
+									disabled={isSubmitting}
 								/>
 							</div>
 
 							<button
 								type="submit"
-								className="w-full bg-primary-500 text-white px-8 py-3 rounded-lg
+								className={`w-full bg-primary-500 text-white px-8 py-3 rounded-lg
 								font-semibold hover:bg-primary-600 transform hover:scale-105 transition-all
-								duration-300 shadow-lg hover:shadow-xl"
+								duration-300 shadow-lg hover:shadow-xl ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+								disabled={isSubmitting}
 							>
-								SEND MESSAGE
+								{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
 							</button>
 						</form>
 					</div>

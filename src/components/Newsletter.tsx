@@ -2,24 +2,73 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { ReactNode } from 'react'
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isRlsError, setIsRlsError] = useState(false)
+  const [debugInfo, setDebugInfo] = useState('')
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setErrorMessage('')
+    setDebugInfo('')
+    setIsRlsError(false)
     
-    // Simulate API call
-    setTimeout(() => {
+    if (!email || email.trim() === '') {
+      setErrorMessage('Please enter a valid email address')
       setIsLoading(false)
-      setIsSubmitted(true)
-      setEmail('')
-    }, 1500)
+      return
+    }
+    
+    try {
+      console.log('Attempting to subscribe with email:', email)
+      
+      // Use the API endpoint instead of directly calling the Supabase function
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      })
+      
+      const result = await response.json()
+      
+      console.log('Subscription result:', result)
+      
+      if (result.success) {
+        setIsSubmitted(true)
+        setEmail('')
+      } else {
+        // Check if this is an RLS error and provide a helpful message
+        if (result.errorType === 'rls') {
+          setErrorMessage('Database security policy error.')
+          setIsRlsError(true)
+          setDebugInfo(`${result.message} ${result.details || ''}`)
+        } else {
+          setErrorMessage(result.message || 'Something went wrong. Please try again.')
+          setDebugInfo(`Failed with message: ${result.message}`)
+        }
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error)
+      setErrorMessage('Failed to subscribe. Please try again later.')
+      
+      if (error instanceof Error) {
+        setDebugInfo(`Error: ${error.message}`)
+      } else {
+        setDebugInfo(`Unknown error: ${String(error)}`)
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const containerVariants = {
@@ -59,6 +108,18 @@ export default function Newsletter() {
       description: "Learn about ways to serve the community through selfless service"
     }
   ]
+
+  // Add debug info display to the form
+  const renderDebugInfo = () => {
+    if (!debugInfo) return null;
+    
+    return (
+      <div className="mt-4 p-3 text-xs bg-gray-100 text-gray-800 rounded-md font-mono overflow-auto">
+        <p className="font-bold mb-1">Debug Info:</p>
+        <pre>{debugInfo}</pre>
+      </div>
+    );
+  }
 
   return (
     <section ref={ref} className="py-16 md:py-24 relative overflow-hidden">
@@ -195,6 +256,24 @@ export default function Newsletter() {
                           </div>
                         </div>
                       </div>
+                      
+                      {errorMessage && (
+                        <div className="p-3 text-sm bg-red-50 text-red-800 rounded-md">
+                          {errorMessage}
+                          {isRlsError && (
+                            <a 
+                              href="/api/enable-rls" 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="block underline text-orange-700 mt-1 font-medium"
+                            >
+                              Click here to fix the database policy issue
+                            </a>
+                          )}
+                        </div>
+                      )}
+                      
+                      {renderDebugInfo()}
                       
                       <motion.button
                         type="submit"
