@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import Logo from '@/components/Logo'
+import Header from '@/components/Header'
 
 const pillars = [
   {
@@ -58,25 +62,67 @@ const philosophy = [
 
 export default function FaithPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-primary-50 via-neutral-50 to-secondary-50">
-      {/* Remove navigation section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Hero Section */}
-        <div className="relative h-[60vh] md:h-[70vh] w-full">
-          <Image
-            src="/images/667c8ef5919336892cfe67e2_Main.jpg"
-            alt="Sikh Faith"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white text-center px-4 mt-16">
-              Sikh Faith & Philosophy
-            </h1>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Hero Section */}
+      <div className="relative min-h-[90vh] w-full pt-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid md:grid-cols-2 gap-16 items-center py-12">
+            {/* Left side - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[65vh] rounded-2xl overflow-hidden"
+            >
+              <Image
+                src="/images/667e0685d321a59a71c14292_IMG_1792-Large.jpg"
+                alt="Sikh Traditions"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+
+            {/* Right side - Text content */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-left space-y-8"
+            >
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900">
+                Discover<br />Sikh Faith
+              </h1>
+              <p className="text-xl text-gray-700 max-w-xl">
+                Explore the rich traditions, philosophy, and teachings of Sikhism - 
+                a religion that emphasizes equality, service, and spiritual growth.
+              </p>
+              <div className="flex gap-4">
+                <Link 
+                  href="/contact"
+                  className="inline-block bg-primary-600 text-white px-8 py-4 rounded-full 
+                  font-semibold text-lg hover:bg-primary-700 transition-colors duration-200 
+                  shadow-lg hover:shadow-xl"
+                >
+                  Learn More
+                </Link>
+                <Link 
+                  href="/about"
+                  className="inline-block bg-transparent border-2 border-primary-600 text-primary-600 
+                  px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary-50 
+                  transition-colors duration-200"
+                >
+                  About Us
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Introduction */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Understanding Sikhism</h2>
