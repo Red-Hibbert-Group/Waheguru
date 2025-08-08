@@ -212,7 +212,7 @@ export default function Contact() {
 							<div className="space-y-4">
 								<div className="flex items-start space-x-3">
 									<span className="text-primary-600 text-xl">📍</span>
-									<p className="text-neutral-600 text-lg">1234 Waheguru Street, Livermore, CA 94550</p>
+									<p className="text-neutral-600 text-lg">WAHEGURU SANGATH FOUNDATION<br />39116 FREMONT HUB SUITE 1282<br />FREMONT, CA 94538</p>
 								</div>
 								<div className="flex items-center space-x-3">
 									<span className="text-primary-600 text-xl">📞</span>
