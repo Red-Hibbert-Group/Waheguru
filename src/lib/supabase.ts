@@ -38,8 +38,8 @@ export async function initializeDatabase() {
   }
 }
 
-// Run initialization
-initializeDatabase().catch(console.error)
+// Commented out automatic initialization to prevent build-time database calls
+// initializeDatabase().catch(console.error)
 
 /**
  * Subscribe an email to the newsletter
