@@ -195,9 +195,6 @@ export default function Contact() {
 						<h3 className="text-2xl font-semibold text-primary-700 mb-6">
 							Get In Touch
 						</h3>
-						<p className="text-neutral-600 text-lg mb-8 italic">
-							"Sarbat da bhala" - May all prosper and be blessed
-						</p>
 						<div className="space-y-4">
 							<div className="flex items-start space-x-3">
 								<span className="text-primary-600 text-xl">📍</span>
