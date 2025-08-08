@@ -195,12 +195,18 @@ export default function Contact() {
 						<h3 className="text-2xl font-semibold text-primary-700 mb-6">
 							Get In Touch
 						</h3>
-						<p className="text-neutral-600 text-lg mb-8">
-							For any inquiries or questions, please reach out to us via email.
+						<p className="text-neutral-600 text-lg mb-8 italic">
+							"Sarbat da bhala" - May all prosper and be blessed
 						</p>
-						<div className="flex items-center space-x-3">
-							<span className="text-primary-600 text-xl">✉️</span>
-							<p className="text-neutral-600 text-lg">relations@waheguru.org</p>
+						<div className="space-y-4">
+							<div className="flex items-start space-x-3">
+								<span className="text-primary-600 text-xl">📍</span>
+								<p className="text-neutral-600 text-lg">39116 FREMONT HUB SUITE 1282<br />FREMONT, CA 94538</p>
+							</div>
+							<div className="flex items-center space-x-3">
+								<span className="text-primary-600 text-xl">✉️</span>
+								<p className="text-neutral-600 text-lg">relations@waheguru.org</p>
+							</div>
 						</div>
 					</div>
 				</div>
